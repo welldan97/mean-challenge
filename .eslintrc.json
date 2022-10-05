@@ -40,6 +40,7 @@
     "@typescript-eslint/no-empty-function": "off",
     "react/state-in-constructor": "off",
     "import/prefer-default-export": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "jsx-a11y/control-has-associated-label": "off"
   }
 }

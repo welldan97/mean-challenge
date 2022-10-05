@@ -7,19 +7,12 @@ import {
 import { useWallet } from '@solana/wallet-adapter-react';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { DateTime } from 'luxon';
 import { Transaction } from '../../../lib/Transaction';
+import config from '../../../config';
 
 const endpoint = 'https://api.devnet.solana.com';
 const connection = new Connection(endpoint, 'confirmed');
-
-/*
-const getBalance = async publicKey => {
-  const balance = await connection.getBalance(publicKey);
-  console.log(`balance: ${balance}`);
-  connection.onLogs(publicKey, logs => console.log('logs', logs));
-  connection.onAccountChange(publicKey, acc => console.log('acc', acc));
-};
-*/
 
 type Info = {
   destination: string;
@@ -27,47 +20,79 @@ type Info = {
   source: string;
 };
 
-const isTransfer = (solanaTransaction: ParsedTransactionWithMeta | null) => {
-  if (!solanaTransaction) return false;
-  const instruction = solanaTransaction.transaction.message.instructions[0];
-  if (!('parsed' in instruction)) return false;
-  return instruction.parsed?.type === 'transfer';
-};
-
 const solanaTransactionToTransaction = (
   solanaTransaction: ParsedTransactionWithMeta | null,
+  publicKey: PublicKey,
 ) => {
-  if (!isTransfer(solanaTransaction)) return undefined;
-  const info = solanaTransaction!.transaction.message.instructions[0].parsed
-    .info as Info;
+  if (!solanaTransaction) return undefined;
+  if (!solanaTransaction.meta) return undefined;
+
+  const { fee } = solanaTransaction.meta;
+  const postBalances = solanaTransaction.meta.postBalances.slice(0, 2);
+  const preBalances = solanaTransaction.meta.preBalances.slice(0, 2);
+  const timestamp = solanaTransaction.blockTime;
+
+  const instruction = solanaTransaction.transaction.message.instructions[0];
+
+  if (!('parsed' in instruction) || instruction.parsed?.type !== 'transfer')
+    return {
+      type: 'other',
+      walletAddress: publicKey.toBase58(),
+      timestamp,
+      fee,
+      balanceBefore: preBalances[0],
+      balanceAfter: postBalances[0],
+    } as Transaction;
+
+  const info = instruction.parsed.info as Info;
 
   const { destination, lamports: amount, source } = info;
-  const { fee } = solanaTransaction.meta;
-  const balances = solanaTransaction.meta.postBalances.slice(0, 2);
-  const timestamp = solanaTransaction.blockTime;
+  const type = publicKey.toBase58() === source ? 'send' : 'receive';
+
   return {
-    from: source,
-    to: destination,
+    type,
+    walletAddress: publicKey.toBase58(),
+    address: type === 'send' ? destination : source,
     amount,
     timestamp,
     fee,
-    fromBalance: balances[0],
-    toBalance: balances[1],
+    balanceBefore: type === 'send' ? preBalances[0] : preBalances[1],
+    balanceAfter: type === 'send' ? postBalances[0] : postBalances[1],
   } as Transaction;
 };
 
-const getTransactions = async (publicKey: PublicKey) => {
-  const signatures = await connection.getSignaturesForAddress(publicKey, {
-    limit: 10,
-  });
+const getTransactions = async (
+  publicKey: PublicKey,
+  before?: string,
+): Promise<Transaction[]> => {
+  const limit = 1000;
+  const signatures = (
+    await connection.getSignaturesForAddress(publicKey, {
+      limit,
+      before,
+    })
+  ).filter(
+    s =>
+      (s.blockTime || 0) * 1000 >=
+      DateTime.now().minus({ hour: config.hours }).toMillis(),
+  );
+
+  if (!signatures.length) return [];
 
   const solanaTransactions = await connection.getParsedTransactions(
     signatures.map(s => s.signature),
   );
 
-  return solanaTransactions
-    .map(solanaTransactionToTransaction)
+  const nextBefore = signatures[signatures.length - 1].signature;
+
+  const transactions = solanaTransactions
+    .map(t => solanaTransactionToTransaction(t, publicKey))
     .filter(e => e !== undefined) as Transaction[];
+
+  if (signatures.length < limit) return transactions;
+
+  const nextTransactions = await getTransactions(publicKey, nextBefore);
+  return [...transactions, ...nextTransactions];
 };
 
 const useWalletData = () => {
@@ -88,7 +113,10 @@ const useWalletData = () => {
         signature,
       );
 
-      const transaction = solanaTransactionToTransaction(solanaTransaction);
+      const transaction = solanaTransactionToTransaction(
+        solanaTransaction,
+        publicKey,
+      );
       if (!transaction) return;
       setTransactions(prev => [transaction, ...prev]);
     });
