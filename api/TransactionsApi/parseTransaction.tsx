@@ -1,6 +1,6 @@
 import { ParsedTransactionWithMeta, PublicKey } from '@solana/web3.js';
 
-import { Transaction } from '../../lib/Transaction';
+import { Transaction } from '../../lib/types';
 import {
   RequiredParsedTransactionWithMeta,
   TransferParsedTransactionWithMeta,

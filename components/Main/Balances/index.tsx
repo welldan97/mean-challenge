@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
-import { Transaction } from '../../../lib/Transaction';
-import BalancesPresentational from './BalancesPresentational.tsx';
+import { Transaction } from '../../../lib/types';
+import BalancesPresentational from './BalancesPresentational';
 import transactionsToBalances from './transactionsToBalances';
 
 interface Props {

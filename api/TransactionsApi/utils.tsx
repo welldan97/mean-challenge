@@ -2,7 +2,7 @@ import { Connection, PublicKey } from '@solana/web3.js';
 import { DateTime } from 'luxon';
 
 import config from '../../config';
-import { Transaction } from '../../lib/Transaction';
+import { Transaction } from '../../lib/types';
 import parseTransaction from './parseTransaction';
 
 export const fetchSignatures = async (

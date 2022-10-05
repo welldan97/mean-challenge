@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test": "TZ=UTC jest",
+    "test:watch": "TZ=UTC jest --watchAll"
   },
   "dependencies": {
     "@solana/wallet-adapter-base": "^0.9.17",

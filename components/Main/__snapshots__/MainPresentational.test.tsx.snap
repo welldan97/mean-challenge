@@ -1,0 +1,308 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPresentational render 1`] = `
+<div>
+  <div>
+    <header
+      class="sticky justify-end items-center top-0 z-30 flex w-full text-base-content shadow-sm bg-base-300"
+    >
+      <h1
+        class="flex-1 p-4 text-l font-bold"
+      >
+        Solana Balance
+      </h1>
+      <div
+        class="mr-16"
+      >
+        <span>
+          WalletMultiButton
+        </span>
+      </div>
+    </header>
+    <main
+      class="flex flex-col items-center py-16"
+    >
+      <div
+        class="btn-group mb-16"
+      >
+        <button
+          class="btn btn-active"
+          type="button"
+        >
+          Transactions
+        </button>
+        <button
+          class="btn"
+          type="button"
+        >
+          Balances
+        </button>
+      </div>
+      <div
+        class="w-[800px] mb-16"
+      >
+        <table
+          class="table table-zebra w-full"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                Time
+              </th>
+              <th>
+                Timestamp
+              </th>
+              <th>
+                From
+              </th>
+              <th>
+                To
+              </th>
+              <th>
+                Amount
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td
+                class="font-bold text-orange-400"
+              >
+                ⇧
+              </td>
+              <td>
+                05/10/22, 21:34
+              </td>
+              <td>
+                1665005686
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                B1HWEeZCC6Hy3PF24TUmnW8x23oxQirkKwootk27kQTb
+              </td>
+              <td>
+                1
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-bold text-orange-400"
+              >
+                ⇧
+              </td>
+              <td>
+                05/10/22, 21:30
+              </td>
+              <td>
+                1665005445
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                B1HWEeZCC6Hy3PF24TUmnW8x23oxQirkKwootk27kQTb
+              </td>
+              <td>
+                1
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-bold text-orange-400"
+              >
+                ⇧
+              </td>
+              <td>
+                05/10/22, 16:16
+              </td>
+              <td>
+                1664986617
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                B1HWEeZCC6Hy3PF24TUmnW8x23oxQirkKwootk27kQTb
+              </td>
+              <td>
+                0.04
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-bold text-orange-400"
+              >
+                ⇧
+              </td>
+              <td>
+                05/10/22, 15:09
+              </td>
+              <td>
+                1664982540
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                B1HWEeZCC6Hy3PF24TUmnW8x23oxQirkKwootk27kQTb
+              </td>
+              <td>
+                0.03
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-bold text-orange-400"
+              >
+                ⇧
+              </td>
+              <td>
+                05/10/22, 15:07
+              </td>
+              <td>
+                1664982449
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                B1HWEeZCC6Hy3PF24TUmnW8x23oxQirkKwootk27kQTb
+              </td>
+              <td>
+                0.03
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-bold text-orange-400"
+              >
+                ⇧
+              </td>
+              <td>
+                05/10/22, 13:50
+              </td>
+              <td>
+                1664977847
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                B1HWEeZCC6Hy3PF24TUmnW8x23oxQirkKwootk27kQTb
+              </td>
+              <td>
+                0.03
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-bold text-orange-400"
+              >
+                ⇧
+              </td>
+              <td>
+                05/10/22, 13:33
+              </td>
+              <td>
+                1664976815
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                B1HWEeZCC6Hy3PF24TUmnW8x23oxQirkKwootk27kQTb
+              </td>
+              <td>
+                0.03
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-bold text-orange-400"
+              >
+                ⇧
+              </td>
+              <td>
+                05/10/22, 12:59
+              </td>
+              <td>
+                1664974742
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                B1HWEeZCC6Hy3PF24TUmnW8x23oxQirkKwootk27kQTb
+              </td>
+              <td>
+                1
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-bold text-blue-200"
+              >
+                ⇩
+              </td>
+              <td>
+                05/10/22, 00:02
+              </td>
+              <td>
+                1664928170
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                9B5XszUGdMaxCZ7uSQhPzdks5ZQSmWxrmzCSvtJ6Ns6g
+              </td>
+              <td
+                class="truncate max-w-[100px]"
+              >
+                F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+              </td>
+              <td>
+                2
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+`;

@@ -1,5 +1,10 @@
 import { memo } from 'react';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import dynamic from 'next/dynamic';
+
+// use dynamic import to mock in tests
+const WalletMultiButton = dynamic(() => import('./WalletMultiButtonBridge'), {
+  ssr: false,
+});
 
 const Header = memo(() => (
   <header className="sticky justify-end items-center top-0 z-30 flex w-full text-base-content shadow-sm bg-base-300">

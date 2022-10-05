@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { memo } from 'react';
 import config from '../../../config';
-import { Transaction } from '../../../lib/Transaction';
+import { Transaction } from '../../../lib/types';
 
 interface Props {
   transaction: Transaction;

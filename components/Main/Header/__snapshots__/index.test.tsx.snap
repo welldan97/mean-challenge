@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header render 1`] = `
+<div>
+  <header
+    class="sticky justify-end items-center top-0 z-30 flex w-full text-base-content shadow-sm bg-base-300"
+  >
+    <h1
+      class="flex-1 p-4 text-l font-bold"
+    >
+      Solana Balance
+    </h1>
+    <div
+      class="mr-16"
+    >
+      <span>
+        WalletMultiButton
+      </span>
+    </div>
+  </header>
+</div>
+`;

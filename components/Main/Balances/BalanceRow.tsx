@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import config from '../../../config';
-import { Balance } from './types';
+import { Balance } from '../../../lib/types';
 
 interface BalanceRowProps {
   balance: Balance;

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionRow render 1`] = `
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <td
+          class="font-bold text-orange-400"
+        >
+          ⇧
+        </td>
+        <td>
+          05/10/22, 21:34
+        </td>
+        <td>
+          1665005686
+        </td>
+        <td
+          class="truncate max-w-[100px]"
+        >
+          F4cjCGtoG3Q58c8Qm3DQSq7m74nDYvUBFwSqReRAeZ23
+        </td>
+        <td
+          class="truncate max-w-[100px]"
+        >
+          B1HWEeZCC6Hy3PF24TUmnW8x23oxQirkKwootk27kQTb
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

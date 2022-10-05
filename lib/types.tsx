@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 interface TransferTransaction {
   type: 'send' | 'receive';
   walletAddress: string;
@@ -19,3 +21,9 @@ interface OtherTransaction {
 }
 
 export type Transaction = TransferTransaction | OtherTransaction;
+
+export interface Balance {
+  dateTime: DateTime;
+  averageBalance: number;
+  transactionsCount: number;
+}

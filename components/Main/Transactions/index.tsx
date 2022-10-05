@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import config from '../../../config';
-import { Transaction } from '../../../lib/Transaction';
+import { Transaction } from '../../../lib/types';
 import TransactionRow from './TransactionRow';
 
 interface Props {

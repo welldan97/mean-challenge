@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 
 import TransactionsApi from '../../../api/TransactionsApi';
-import { Transaction } from '../../../lib/Transaction';
+import { Transaction } from '../../../lib/types';
 import { WalletStatus } from '../../types';
 
 const calcStatus = (
@@ -41,12 +41,12 @@ const useWalletData = () => {
     if (!publicKey) return;
     connection.onLogs(publicKey, async logs => {
       const { signature } = logs;
-
       const transaction = await TransactionsApi.getBySignature(
         connection,
         publicKey,
         signature,
       );
+
       if (!transaction) return;
       setTransactions(prev => [transaction, ...prev]);
     });

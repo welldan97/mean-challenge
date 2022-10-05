@@ -6,8 +6,7 @@ import times from 'lodash/fp/times';
 import { DateTime, Interval } from 'luxon';
 
 import config from '../../../config';
-import { Transaction } from '../../../lib/Transaction';
-import { Balance } from './types';
+import { Transaction, Balance } from '../../../lib/types';
 
 const getTransactionsHourInterval = (transactions: Transaction[]) => {
   const startOfHour = DateTime.fromMillis(

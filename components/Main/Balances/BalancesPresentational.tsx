@@ -1,7 +1,7 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import config from '../../../config';
+import { Balance } from '../../../lib/types';
 import BalanceRow from './BalanceRow';
-import { Balance } from './types';
 
 interface Props {
   balances: Balance[];

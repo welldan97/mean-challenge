@@ -1,7 +1,7 @@
 import { Connection, PublicKey } from '@solana/web3.js';
 
 import config from '../../config';
-import { Transaction } from '../../lib/Transaction';
+import { Transaction } from '../../lib/types';
 import parseTransaction from './parseTransaction';
 import { fetchSignatures, fetchTransactions } from './utils';
 
@@ -21,7 +21,6 @@ const TransactionsApi = {
       publicKey,
       signatures,
     );
-
     // Reached the end - return fetched transactions
     if (signatures.length < config.signaturesLimit) return transactions;
 

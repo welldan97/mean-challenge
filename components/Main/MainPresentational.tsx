@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { memo } from 'react';
 
-import { Transaction } from '../../lib/Transaction';
+import { Transaction } from '../../lib/types';
 import { WalletStatus } from '../types';
 import Balances from './Balances';
 import Header from './Header';
